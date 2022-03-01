@@ -1,0 +1,32 @@
+{
+  "@renku_data_type": "renku.core.models.project.Project",
+  "@renku_oid": "project",
+  "agent_version": "1.0.6",
+  "annotations": [],
+  "automated_update": false,
+  "creator": {
+    "@renku_data_type": "renku.core.models.provenance.agent.Person",
+    "@renku_data_value": {
+      "affiliation": null,
+      "alternate_name": null,
+      "email": "rdefondeville@gmail.com",
+      "id": "mailto:rdefondeville@gmail.com",
+      "name": "Raphaël de Fondeville"
+    }
+  },
+  "date_created": {
+    "@renku_data_type": "datetime.datetime",
+    "@renku_data_value": "2022-03-01T09:10:26+00:00"
+  },
+  "description": "",
+  "id": "/projects/rdefondeville/practicals-extreme-value-statistics-athens",
+  "immutable_template_files": [],
+  "keywords": [],
+  "name": "Practicals Extreme Value Statistics - ATHENS",
+  "template_id": "R-minimal",
+  "template_metadata": "{\"__template_source__\": \"https://github.com/SwissDataScienceCenter/renku-project-template\", \"__template_ref__\": \"0.3.0\", \"__template_id__\": \"R-minimal\", \"__namespace__\": \"rdefondeville\", \"__automated_update__\": true, \"__repository__\": \"https://renkulab.io/gitlab\", \"__sanitized_project_name__\": \"practicals-extreme-value-statistics-athens\", \"__project_slug__\": \"rdefondeville/practicals-extreme-value-statistics-athens\", \"__project_description__\": \"\", \"__renku_version__\": \"1.0.6\", \"name\": \"Practicals Extreme Value Statistics - ATHENS\", \"__name__\": \"Practicals Extreme Value Statistics - ATHENS\"}",
+  "template_ref": "0.3.0",
+  "template_source": "https://github.com/SwissDataScienceCenter/renku-project-template",
+  "template_version": "fc5fddb1e14055ef5ac3b3332fc9bb8e271d7e08",
+  "version": 9
+}
