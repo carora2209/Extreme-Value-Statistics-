@@ -9,7 +9,7 @@ For the latter, you need to form pairs and send an email to `raphael.defondevill
 - Temperature.
 More details about the data can be found in the Data section.
 
-Project instructions:
+## Project instructions:
 - Load your database, which depends on the number of your group;
 - Explore your database (descriptive statistics), following the example given in `NO2.Rmd`:
     - Do not hesitate to go further than in NO2.Rmd (e.g. plot histograms, spot anomalies, remove trends, etc.),
