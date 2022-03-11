@@ -1,37 +1,43 @@
 # Practicals Extreme Value Statistics - ATHENS
 
 ## Introduction
+You will find in this project all practicals and material necessary for the course's project.
 
-This is a Renku project - basically a git repository with some
-bells and whistles. You'll find we have already created some
-useful things like `data` and `notebooks` directories and
-a `Dockerfile`.
+For the latter, you need to from pairs and send an email to `raphael.defondeville[at]bfs.admin.ch` with your names and the physical quantity you want to analyze:
+- Wind speed,
+- Rainfall,
+- Temperature.
+More details about the data can be found in the Data section.
 
-## Working with the project
+The project must include:
+- Load your database, which depends on the number of your group;
+- Explore your database (descriptive statistics), following the example given in `NO2.Rmd`:
+    - Do not hesitate to go further than in NO2.Rmd (e.g. plot histograms, spot anomalies, remove trends, etc.),
+    - This exploratory analysis should help you assess if your data satisfies the classical assumptions in Extreme Value Theory (e.g. stationarity, mixing, existence of a maximum domain of attraction, etc.),
+- Perform a full univariate extreme value analysis for the variable and locations you were assigned (cf. the database description):
+    - Is there a maximum domain of attraction ? Is the variable heavy-tailed ?
+    - Estimate the EVI, deduce extreme probabilities and extreme quantiles
+- Try to interpret your results 
 
-The simplest way to start your project is right from the Renku
-platform - just click on the `Environments` tab and start a new session.
-This will start an interactive environment right in your browser.
+If you do not know what to conclude from your results, you can try to see what classical distributions would give: simulate artificial data sets from a GEV/GPD (choose the parameters wisely), and see what the resulting statistics would look like...
 
-To work with the project anywhere outside the Renku platform,
-click the `Settings` tab where you will find the
-git repo URLs - use `git` to clone the project on whichever machine you want.
+## Data and code
+We propose three different data sets:
+- Rainfall station measurements in the state of Victoria, AU;
+- Wind speed over western Europe;
+- Temperature measurements in the South of France.
 
-### Changing interactive environment dependencies
+The provided data file entitled `team_number.RData`, include three objects:
+- `dataset`: data frame including the measurements from three locations;
+- `dates`:dates for each row of the data.frame;
+- `coordinates`: geographical coordinates for each of the locations.
 
-Initially we install a very minimal set of packages to keep the images small.
-However, you can add python and conda packages in `requirements.txt` and
-`environment.yml`, and R packages to `install.R` (listed as, for example,
-`install.packages("ggplot2")`), to your heart's content. If you need more fine-grained
-control over your environment, please see [the documentation](https://renku.readthedocs.io/en/latest/user/advanced_interfaces.html#dockerfile-modifications).
+You can find the corresponding code to display
 
-## Project configuration
+## Deadline and grades
+The project is be due on Friday, March ??, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
 
-Project options can be found in `.renku/renku.ini`. In this
-project there is currently only one option, which specifies
-the default type of environment to open, in this case `/rstudio`.
+We will dowload the souce code and pdf rendering at the above time and grade the project as is at that time.
 
-## Moving forward
 
-Once you feel at home with your project, we recommend that you replace
-this README file with your own project documentation! Happy data wrangling!
+
