@@ -14,11 +14,12 @@ More details about the data can be found in the Data section.
 - Explore your database (descriptive statistics), following the example given in `NO2.Rmd`:
     - Do not hesitate to go further than in NO2.Rmd (e.g. plot histograms, spot anomalies, remove trends, etc.),
     - This exploratory analysis should help you assess if your data satisfies the classical assumptions in Extreme Value Theory (e.g. stationarity, mixing, existence of a maximum domain of attraction, etc.),
-- Perform a full univariate extreme value analysis for the variable and locations you were assigned (cf. the database description):
+- Perform a full univariate extreme value analysis for the variable and locations you were assigned:
+    - Both block-maxima and peaks-over-threshold can be considered.
     - Is there a maximum domain of attraction ? Is the variable heavy-tailed ?
     - Estimate the EVI, deduce extreme probabilities and extreme quantiles
-- Try to interpret your results 
-- Any intiative going beyond the `NO2.Rmd`, such as multivariate modelling or spatial analysis will be valued.
+- Try to interpret your results. 
+- Intiative going beyond the `NO2.Rmd` example, such as multivariate modelling and / or spatial analysis will be expected.
 
 If you do not know what to conclude from your results, you can try to see what classical distributions would give: simulate artificial data sets from a GEV/GPD (choose the parameters wisely), and see what the resulting statistics would look like...
 
@@ -33,12 +34,14 @@ The provided data file entitled `team_number.RData`, include three objects:
 - `dates`:dates for each row of the data.frame;
 - `coordinates`: geographical coordinates for each of the locations.
 
-You can find the corresponding code to display
+You can find the corresponding code to display the location of your measurements inthe folder `Code_Example`.
+
+For a block maxima analysis, you will need to first define, e.g., yearly maxima, and compute blocks from the original data. 
 
 ## Deadline and grading
 The project is be due on Sunday, April 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
 
-We will dowload the souce code and rendered htlm/pdf file that will be used to grade the project.
+We will dowload the souce code and corresponding rendered htlm/pdf file that will be used to grade the project.
 
 
 
