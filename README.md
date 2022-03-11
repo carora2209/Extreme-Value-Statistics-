@@ -7,6 +7,7 @@ For the latter, you need to form pairs and send an email to `raphael.defondevill
 - Wind speed,
 - Rainfall,
 - Temperature.
+
 More details about the data can be found in the Data section.
 
 ## Project instructions:
@@ -36,7 +37,7 @@ The provided data file entitled `team_number.RData`, include three objects:
 
 You can find the corresponding code to display the location of your measurements inthe folder `Code_Example`.
 
-For a block maxima analysis, you will need to first define, e.g., yearly maxima, and compute blocks from the original data. 
+For a block maxima analysis, you will need to first define, e.g., yearly/monthly maxima, and compute blocks from the original data. 
 
 ## Deadline and grading
 The project is be due on Sunday, April 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
