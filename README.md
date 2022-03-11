@@ -19,7 +19,7 @@ More details about the data can be found in the Data section.
     - Is there a maximum domain of attraction ? Is the variable heavy-tailed ?
     - Estimate the EVI, deduce extreme probabilities and extreme quantiles
 - Try to interpret your results. 
-- Intiative going beyond the `NO2.Rmd` example, such as multivariate modelling and / or spatial analysis will be expected.
+- Intiatives going beyond the `NO2.Rmd` example, such as multivariate modelling and / or spatial analysis will be expected.
 
 If you do not know what to conclude from your results, you can try to see what classical distributions would give: simulate artificial data sets from a GEV/GPD (choose the parameters wisely), and see what the resulting statistics would look like...
 
