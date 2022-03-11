@@ -10,12 +10,18 @@ FROM ${RENKU_BASE_IMAGE}
 # e.g. the following installs apt-utils and vim; each pkg on its own line, all lines
 # except for the last end with backslash '\' to continue the RUN line
 #
-# USER root
-# RUN apt-get update && \
-#    apt-get install -y --no-install-recommends \
-#    apt-utils \
-#    vim
-# USER ${NB_USER}
+USER root
+RUN apt-get update && \
+   apt-get install -y --no-install-recommends \
+   libgmp3-dev \
+   zlib1g-dev \
+   libssh2-1-dev \
+   libpng-dev \
+   libjpeg-dev \
+   libgdal-dev \
+   proj-bin
+USER ${NB_USER}
+
 
 # install the R dependencies
 COPY install.R /tmp/
