@@ -1,0 +1,156 @@
+---
+title: "NO2  case study (5 stations)"
+author: "HW"
+date: "March 12, 2019"
+output: html_document
+---
+
+Data set from the paper  by Cooley,  Davis, Naveau (The Annals of Applied Statistics 2012, Vol. 6, No. 4, 1406–1429). 
+ Data available  at  http://www.stat.colostate.edu/~cooleyd/DataAndCode/PredExtremes/.
+
+## Description
+
+- Variable:  daily maximum hourly NO2 measurement.
+
+- Five stations located in Washington DC and nearby Virginia: Alexandria (alx), McMillan (mc), River Terrace (rt), Takoma School (ts) and Arlington (arl).
+
+- Period: 5000 daily NO2 measurements recorded between 1995 and 2010, keeping only those records for which all five stations have measurements, resulting in 4497 daily measurements. 
+
+- Rounding: because the data were truncated to the nearest ppb, a uniform random variable on the interval [−0.5, 0.5] was added to the data so that they behave more like the underlying continuous variable.
+
+```{r}
+
+## Load data and display first and last 5 lines
+
+
+load("nitrogenDioxideMsmts.RData")
+head(no2Msmts); tail(no2Msmts)
+```
+
+
+```{r}
+
+## Load graphical package lattice 
+library(lattice)
+
+## Times series at each of the 5 stations
+dates=as.Date(no2Msmts[,1], origin = "1970-01-01")
+xyplot(no2Msmts[,2]~ dates,pch=19,ylab="NO2 at Alexandria")
+xyplot(no2Msmts[,3]~ dates,pch=19,ylab="NO2 at Arlington")
+xyplot(no2Msmts[,4]~ dates,pch=19,ylab="NO2 at McMillan ")
+xyplot(no2Msmts[,5]~ dates,pch=19,ylab="NO2 at River Terrace")
+xyplot(no2Msmts[,6]~ dates,pch=19,ylab="NO2 at Takoma School")
+```
+
+## Examine dependence on weekdays
+
+On Saturday and Sunday there is less NO2 for all series.
+
+```{r}
+## data object is a matrix, create a data frame
+class(no2Msmts)
+NO2=as.data.frame(no2Msmts)
+names(NO2)
+```
+
+```{r}
+
+## in case the locale is not in english
+Sys.setlocale("LC_TIME", "en_US.UTF-8")
+```
+
+```{r}
+
+## dependence on weekdays: on Sat and Sun there is decrease of NO2
+day= factor( weekdays(dates,abbreviate=TRUE), levels=c("Mon","Tue","Wed","Thu", "Fri", "Sat", "Sun"),ordered=TRUE)
+
+bwplot(day~NO2$ts, main="Tacoma school station",xlab="NO2")
+
+```
+
+
+
+## Examine dependence on month
+
+Strangely the median is highest for Feb, Mar, Apr for all series
+
+```{r}
+month =factor( months(dates,abbreviate=TRUE),levels=c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"),ordered=TRUE)
+
+bwplot(month~NO2$alx);bwplot(month~NO2$arl);bwplot(month~NO2$mc);bwplot(month~NO2$rt);bwplot(month~NO2$ts)
+
+```
+
+## QQ plots
+
+Empirical quantiles vs normal quantiles
+
+```{r}
+qqmath(NO2$alx[month=="Jul"])
+```
+
+Empirical quantiles vs exponential quantiles
+
+```{r}
+qqmath(NO2$alx[month=="Jul"],distri=qexp)
+```
+
+
+## Extreme value distribution fit
+
+We use the library ismev that goes with the book by Stuart Coles
+
+```{r}
+# the library ismev needs to be downloaded from CRAN to your machine
+# install.packages("ismev")
+
+## Load library ismev
+library(ismev)
+```
+
+### GEV modelling for each station
+
+Modelling all data without distinguishing days and months, the tail is not fitted well at all for each of the series.
+
+```{r]
+## all days and months together
+gev.diag(gev.fit(NO2$alx));gev.diag(gev.fit(NO2$arl));gev.diag(gev.fit(NO2$mc));gev.diag(gev.fit(NO2$rt));gev.diag(gev.fit(NO2$ts))
+```
+
+### GEV modelling performed for each month
+
+Better fits are obtained for individual months
+
+```{r}
+## for a specific month
+gev.diag(gev.fit(NO2$alx[month=="Jul"]));gev.diag(gev.fit(NO2$arl[month=="Jul"]));gev.diag(gev.fit(NO2$mc[month=="Jul"]));gev.diag(gev.fit(NO2$rt[month=="Jul"]));gev.diag(gev.fit(NO2$ts[month=="Jul"]))
+
+```
+
+## Mean excess plot
+
+```{r}
+mrl.plot(NO2$alx[month=="Jul"])
+```
+
+
+## Scatter plot matrix for the 5 stations
+
+No distinction of months.
+
+Observe the extremes: are they common for a pair of stations ?
+
+```{r}
+splom(NO2[,2:6],pch=19)
+
+```
+
+
+## Scatter plot matrix for the 5 stations
+
+Using a different colour for each month.
+
+
+```{r}
+splom(NO2[,2:6],group=as.factor(month),auto.key=TRUE)
+```
