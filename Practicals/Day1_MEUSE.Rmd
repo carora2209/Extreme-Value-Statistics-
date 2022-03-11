@@ -1,0 +1,171 @@
+---
+title: "Meuse river annual maximal discharge"
+author: "HW"
+date: "May 24, 2018"
+output: html_document
+---
+
+Meuse annual maximal discharge
+==
+
+
+```{r, echo=FALSE}
+# LIBRARY: Intro Stat Modeling Extreme Values
+library(ismev)
+```
+
+```{r}
+# import meuse data
+source("meuse.data.R")
+attach(meuse)
+require(lattice)
+names(meuse)
+xyplot(Discharge~Year,pch=19)
+```
+
+Meuse annual maximal discharge
+==
+
+```{r}
+
+dotplot(Discharge)
+bwplot(Discharge)
+histogram(Discharge,n=20)
+```
+
+Normal and exponential QQ plots
+==
+
+```{r}
+qqmath(Discharge,xlab="Normal quantiles")
+# QQplot for Extreme Value Analysis
+qqmath(Discharge,distribution = qexp,xlab="Exponential quantiles")
+
+```
+
+Two versions of the excess plot
+==
+
+```{r}
+# evir library: excess plot
+library(evir)
+meplot(Discharge)
+# ismev library: excess plot
+mrl.plot(Discharge)
+# notice that meplot has a parameter omit=3: three largest values are omitted
+?meplot
+
+```
+
+GEV and Gumbel model fits
+=
+
+```{r}
+meuse.GEV=gev.fit(Discharge)
+meuse.GUM=gum.fit(Discharge)
+# plot diagnostics
+gev.diag(meuse.GEV)
+gum.diag(meuse.GUM)
+```
+```{r}
+gev.profxi(meuse.GEV)   #-.3,.3
+gev.prof(meuse.GEV,100) # 2500,4500
+```
+CONCLUSION
+=
+
+Same conclusion as Beirlant et al.:
+Gumbel model is better than GEV model.
+
+NEW ANALYSIS OF THAT DATA
+==
+
+Discussion: are there outliers? 
+
+```{r}
+plot(meuse)
+lines(lowess(meuse),col=2)
+
+```
+
+Which years?
+==
+
+```{r}
+# there seems to be an outlier: which year?
+plot(meuse)
+###  For interactivity execute the commands of chunk in the CONSOLE
+# CLICK on point in Plot window [ESC  to end]
+identify(meuse)
+```
+
+Outliers
+==
+
+```{r}
+Year[15]; Year[85]
+
+```
+Remove outliers
+==
+
+```{r}
+mm2 = data.frame(cbind(Year[c(-15,-85)],Discharge[c(-15,-85)]))
+colnames(mm2) = c("Year","Discharge")
+```
+
+Recompute and display the overall trend without outlier
+==
+
+```{r}
+plot(meuse) # with outlier
+# using "loess"" instead of "lowess""
+lines(meuse$Year,
+predict(loess(Discharge ~ Year,
+data=meuse,span=1.2)) ,col=4)
+
+plot(mm2) # without outlier
+lines(mm2$Year,
+predict(loess(Discharge ~ Year,
+data=mm2,span=1.2)) ,col=2)
+
+```
+
+Including the trend into the GEV analysis
+==
+
+
+
+```{r}
+## storing the trend
+meuse.loess =
+as.data.frame(
+predict(loess(Discharge ~ Year,
+data=mm2,span=1.2)))
+colnames(meuse.loess)="CE"
+
+## storing the analysis
+
+meuse.GEVloess =
+gev.fit(mm2$Discharge,ydat=meuse.loess,mul=1)
+meuse.GUMloess =
+gum.fit(mm2$Discharge,ydat=meuse.loess,mul=1)
+
+# plot diagnostics
+gev.diag(meuse.GEVloess)
+gum.diag(meuse.GUMloess)
+
+```
+```{r}
+## compare the negative log-likelihoods (nllh)
+meuse.GEVloess$nllh
+meuse.GUM$nllh
+```
+
+CONCLUSION
+==
+
+GEV model fits the residuals better than Gumbel model.
+
+
+
