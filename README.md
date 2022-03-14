@@ -40,7 +40,7 @@ You can find the corresponding code to display the location of your measurements
 For a block maxima analysis, you will need to first define, e.g., yearly/monthly maxima, and compute blocks from the original data. 
 
 ## Deadline and grading
-The project is be due on Sunday, April 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
+The project is be due on Thursday, March 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
 
 We will dowload the souce code and corresponding rendered htlm/pdf file that will be used to grade the project.
 
