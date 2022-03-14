@@ -44,5 +44,38 @@ The project is be due on Thursday, March 24th, 2022, at 23:59 CET (UTC+1). To ha
 
 We will dowload the souce code and corresponding rendered htlm/pdf file that will be used to grade the project.
 
+## Dataset attribution adn pairs
 
+| Number	|GROUP|	DATA|	Last name|	First name |
+| --- | -------- | -------- |-------- | -------- |
+|1|	A|	Wind |	GRAMA |	Diandra- Sorana |
+|1|	A|	Wind |	ARORA |	Chaitanya |
+|2|	B|	Rainfall |	KLEJCHOVÁ |	Abigail |
+|2|	B|	Rainfall |	TRYBUS |	Rafał |
+|3|	C|	Rainfall |	COTILLARD |	Tristan |
+|3|	C|	Rainfall |	DEJEAN DE LA BÂTIE |	Marguerite |
+|4|	D|	Temperature |	IZDEBSKI |	Maciej |
+|4|	D|	Temperature |	KOCHAŃSKI |	Łukasz |
+|5|	E|	Temperature |	MARCHESI |	Maria |
+|5|	E|	Temperature |	ABERGO |	Chiara |
+|6|	F|	Rainfall |	KALIANKO |	Vit |
+|6|	F|	Rainfall |	VADLEJCH |	Martin |
+|7|	G|	Rainfall |	MARQUES	| Nuno |
+|7|	G|	Rainfall |	PINTO |	João |
+|8|	H|	Temperature |	CRUZ BANDEIRA FERNANDES |	Afonso |
+|8|	H|	Temperature |	LI	| JInze |
+|9|	I|	Rainfall |	AUROUSSEAU	| Tanguy |
+|9|	I|	Rainfall |	GIBOUREAU	| Nils |
+|10|J|	Temperature |	FERRARA	| Francesco |
+|10	|J|	Temperature |	MORESCHI |	Jacopo |
+|11	|K|	Temperature |	SUSINI |	Garance|
+|11	|K|	Temperature |	LEONE |	Leonardo |
+|12	|L|	Wind |	SEFCIK |	Jan |
+|12	|L|	Wind |	ZID |	Cenek |
+|13	|M|	Wind |	VALENTA	| Tomas |
+|13	|M|	Wind |	MARTENS	| Timo |
+|14	|N|	Temperature |	SPIEKER |	Christine |
+|14	|N|	Temperature |	SERAFIN	| Emilia |
+|15	|R|	Rainfall |	POKORNÝ	 | Jan |
+|15	|R|	Rainfall |	JANCICKA |	Lukas |
 
