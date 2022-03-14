@@ -3,7 +3,7 @@
 ## Introduction
 You will find in this `renkulab` project all practicals and the material necessary for the course's project.
 
-For the latter, you need to form pairs and send an email to `raphael.defondeville[at]bfs.admin.ch` with your names and the physical quantity you want to analyze:
+For the latter, you need to form pairs and fill the sheet with letter and the physical quantity you want to analyze:
 - Wind speed,
 - Rainfall,
 - Temperature.
