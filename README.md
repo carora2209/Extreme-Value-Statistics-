@@ -78,4 +78,6 @@ We will dowload the souce code and corresponding rendered htlm/pdf file that wil
 |14	|N|	Temperature |	SERAFIN	| Emilia |
 |15	|R|	Rainfall |	POKORNÝ	 | Jan |
 |15	|R|	Rainfall |	JANCICKA |	Lukas |
+|16|	S |	Temperature |	CLAVE |	Gabriel |
+|16	|S |	Temperature |	CARDI |	Etienne |
 
