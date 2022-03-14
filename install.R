@@ -2,6 +2,11 @@ install.packages("evd")
 install.packages("evir")
 install.packages("ismev")
 install.packages("SpatialExtremes")
+install.packages("BMAmevt")
+install.packages("extRemes")
+install.packages("fExtremes")
+install.packages("mev")
+install.packages("MCMCpack")
 
 # Update markdown pacakge
 install.packages("markdown")
