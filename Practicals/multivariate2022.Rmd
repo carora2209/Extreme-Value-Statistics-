@@ -1,0 +1,235 @@
+---
+title: "ATHENS course on Extreme-Value Theory"
+subtitle:  "Multivariate extreme-value analysis"
+author: "Thomas Opitz (BioSP, INRAE)"
+date: "16 March 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE, tidy = FALSE, dev = 'png')
+par(mar = c(5, 4, 1, 1) + .1)
+WORK = "~/research/enseignement/ATHENS_Cours-Extremes/code/"
+setwd(WORK)
+options(warn=-1)
+```
+
+##Practicals Part 1
+
+### 1.1) Simulation and visualisation of the pairwise beta angular measure
+
+We sample from the spectral measure using the function rpairbeta, and then we provide an interactive 3D plot with plot3d. 
+We can also add the boundary segments of the unit simplex, and the origin (0,0,0).
+
+First, we load the required R packages. 
+```{r load packages, message=FALSE}
+#library containing the pairwise beta angular measure:
+library(BMAmevt)
+#library for "3D Visualization Using OpenGL":
+library(rgl)
+```
+
+```{r, echo=TRUE}
+n=200
+pars=c(0.5,0.2,0.2,6)
+w=rpairbeta(n,dimData=3,par=pars)
+plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+
+pars=c(.1,10,10,10)
+w=rpairbeta(n,dimData=3,par=pars)
+plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+segments3d(c(1,0),c(0,1),c(0,0),col="blue")
+segments3d(c(1,0),c(0,0),c(0,1),col="blue")
+segments3d(c(0,0),c(0,1),c(1,0),col="blue")
+points3d(0,0,0,col="blue",size=10)
+
+pars=c(25,10,10,10)
+w=rpairbeta(n,dimData=3,par=pars)
+plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+segments3d(c(1,0),c(0,1),c(0,0),col="blue")
+segments3d(c(1,0),c(0,0),c(0,1),col="blue")
+segments3d(c(0,0),c(0,1),c(1,0),col="blue")
+points3d(0,0,0,col="blue",size=10)
+
+pars=c(.1,.1,.1,.1)
+w=rpairbeta(n,dimData=3,par=pars)
+plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+segments3d(c(1,0),c(0,1),c(0,0),col="blue")
+segments3d(c(1,0),c(0,0),c(0,1),col="blue")
+segments3d(c(0,0),c(0,1),c(1,0),col="blue")
+points3d(0,0,0,col="blue",size=10)
+
+pars=c(25,.1,.1,.1)
+w=rpairbeta(n,dimData=3,par=pars)
+plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+segments3d(c(1,0),c(0,1),c(0,0),col="blue")
+segments3d(c(1,0),c(0,0),c(0,1),col="blue")
+segments3d(c(0,0),c(0,1),c(1,0),col="blue")
+points3d(0,0,0,col="blue",size=10)
+```
+
+
+### 1.2) Empirical estimation of an extreme event probability
+
+We first define the function ell.min that appropriately reweights the angles of w. Then, we can empirically estimate the target probabilities. 
+
+```{r, echo=TRUE}
+ell.min=function(w,u){min(w/u)}
+pars=c(5,1,1,1)
+w=rpairbeta(n,dimData=3,par=pars)
+3/n*sum(apply(w,1,ell.min,u=10))
+pars=c(.1,1,1,1)
+w=rpairbeta(n,dimData=3,par=pars)
+3/n*sum(apply(w,1,ell.min,u=10))
+```
+## Practicals Part 2: Dependence summaries of air pollution data
+
+### Description (recall of Day 1 practicals)
+
+- Variable:  daily maximum hourly NO2 measurement.
+
+- Five observation stations located in Washington DC and nearby  Virginia: Alexandria (alx), McMillan (mc), River Terrace (rt), Takoma School (ts) and Arlington (arl).
+
+- Observation period: 5000 daily NO2 measurements recorded between 1995 and 2010, where only those records are kept for which all five stations have measurements, resulting in 4497 daily measurements. 
+
+- Rounding: because the data were truncated to the nearest ppb value, a uniform random variable on the interval (-0.5, 0.5) was added to the data so that they behave more like the underlying continuous variable.
+
+We first load the data object and display its first and last lines. 
+
+```{r, echo=TRUE}
+load("nitrogenDioxideMsmts.RData")
+dim(no2Msmts)
+head(no2Msmts)
+tail(no2Msmts)
+```
+
+For simplicity, we will ignore seasonal and long-term trends in the time series and proceed as if data vectors were independent and identically distributed over time. We extract the five data columns into a matrix, and then we show pairwise scatterplots. 
+
+```{r}
+mydata=no2Msmts[,-1]
+pairs(mydata)
+```
+
+### 2.1) Marginal standardization based on the rank transform
+
+We now transform the data to standardized margins (standard Pareto here) using the empirical probability distribution, that is, we use the so-called rank transform.
+
+```{r, echo=TRUE}
+n=nrow(mydata)
+myranks=apply(mydata,2,rank)
+data.unif=myranks/(n+1)
+data.stand=1/(1-data.unif)
+```
+
+### 2.2) Estimation of the extremal coefficient
+
+We estimate the extremal coefficient for a range of values. To obtain symmetric confidence intervals, we use a simple estimator of the standard deviation (that disregards the uncertainty coming from the marginal pretransformation to the standard Pareto scale). 
+
+```{r, echo=TRUE}
+p=0.8+0:19*0.01
+u.star=1/(1-p)
+u.star[1]*mean(apply(data.stand>u.star[1],1,any))
+u.star[20]*mean(apply(data.stand>u.star[20],1,any))
+theta.est=c()
+for(i in 1:length(p)){
+  theta.est[i]=u.star[i]*mean(apply(data.stand>u.star[i],1,any))
+}
+plot(p,theta.est,type="l",lwd=3,xlab="p",ylab=expression(theta[5]))
+# calculate approximate 95% pointwise confidence intervals
+sd_est = sqrt(u.star/n * theta.est *(1-theta.est/u.star))
+lines(p,theta.est + qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
+lines(p,theta.est - qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
+```
+
+Judging from the significantly increasing estimates when p increases, the data do not show threshold-stability. We seem to be in the situation of asymptotic independence. 
+
+### 2.3) Estimation of the coefficient of tail dependence
+
+Next, we plot the estimates of the coefficient of tail dependence, estimated using the Hill estimator applied to the sample of the minimum of the 5 components. This can be done conveniently with the hillPlot function in the fExtremes package, which also provides confidence intervals. 
+
+```{r load packages 2, message=FALSE}
+library(fExtremes)
+```
+
+```{r, echo=TRUE}
+hillPlot(apply(data.stand,1,min), start=0.8*n, plottype="xi") 
+```
+
+The values estimated for eta, and the upper confidence bound far below 1, strongly suggest that we have joint asymptotic independence for these 5 variables. 
+
+## Practicals Part 3: Modeling extremal dependence in air pollution data
+
+### 3.1) Empirical estimation of the angular measure
+
+We first construct the pseudo-polar coordinates and then extract the angles w corresponding to extreme events. 
+
+```{r, echo=TRUE}
+r.obs=apply(data.stand,1,sum)
+w.obs=data.stand/r.obs
+r_0=quantile(r.obs,0.95)
+w.H=w.obs[r.obs>r_0,]
+```
+
+### 3.2) Estimation of joint exceedances above the overall 95% quantile
+
+```{r, echo=TRUE}
+q95=quantile(mydata,0.95)
+q95
+prob.component=apply(mydata<q95,2,mean)
+u.star=1/(1-prob.component)
+u.star
+ell.min=function(w,u){min(w/u)} #already defined in preceding exercice
+d=5
+n_0=nrow(w.H)
+#estimate the probability of the joint exceedance event:
+d/n_0*sum(apply(w.H,1,ell.min,u=u.star))
+#compare to observed empirical probability:
+mean(apply(t(t(data.stand)/u.star)>1,1,all))
+```
+
+In this case, we see that the estimate is relatively close to the empirically observed value. Note that the estimate based on the spectral measure uses more data for the estimation and has therefore much less estimation variance than the direct empirical estimate, which can be very variable depending on the dataset. 
+
+### 3.3) Estimation of a parametric Dirichlet model for the angular measure
+
+We first define the log-likelihood function, and then use it within the maxLik function to compute the maximum likelihood estimate. 
+
+```{r load packages 3, message=FALSE}
+library(MCMCpack) #for Dirichlet density 
+library(maxLik) #for numerical maximisation of the log-likelihood
+```
+
+```{r, echo=TRUE}
+#define the log-likelihood function:
+llfun=function(alpha){
+if(alpha<=0) return(-Inf) #inadmissible parameters
+ sum(log(ddirichlet(w.H,alpha=rep(alpha,d))))
+}
+
+initpar=1 # define the initial value of the parameter
+fit=maxLik(llfun,start=initpar)
+summary(fit)
+```
+
+Here the estimated Dirichlet shape parameter is 0.74.
+
+### 3.4) Pairwise estimations of the  Huesler-Reiss dependence parameters
+
+We construct a dooble loop to run through all combinations of two different variables and estimate the corresponding Huesler-Reiss distributions. 
+
+First, we load the required R packages. 
+```{r load packages 4, message=FALSE}
+library(evd)
+```
+```{r, echo=TRUE}
+u=quantile(mydata,0.95)
+Lambda=matrix(0,d,d)
+for(j1 in 1:(d-1)){
+  for(j2 in (j1+1):d){
+    fit.bv=fbvpot(mydata[,c(j1,j2)],threshold=c(u,u),model="hr")
+    Lambda[j1,j2]=Lambda[j2,j1]=1/fit.bv$estimate[5]
+  }
+}
+Lambda
+```
+
+Some differences arise in the estimated values. We estimate the strongest extremal dependence between components 1 and 2, and the weakest extremal dependence between components 1 and 5. We could also check the standard errors of these estimates to see if these differences are significant. 
