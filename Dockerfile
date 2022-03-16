@@ -19,7 +19,8 @@ RUN apt-get update && \
    libpng-dev \
    libjpeg-dev \
    libgdal-dev \
-   proj-bin
+   proj-bin \
+   freeglut3
 USER ${NB_USER}
 
 
