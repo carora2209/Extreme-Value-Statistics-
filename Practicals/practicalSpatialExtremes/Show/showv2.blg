@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: showv2.aux
+The style file: apalike.bst
+Database file #1: /Users/Mathieu/Dropbox/biblio_ribatet.bib
+You've used 11 entries,
+            1935 wiz_defined-function locations,
+            556 strings with 5372 characters,
+and the built_in function-call counts, 4473 in all, are:
+= -- 439
+> -- 173
+< -- 8
++ -- 57
+- -- 55
+* -- 393
+:= -- 778
+add.period$ -- 34
+call.type$ -- 11
+change.case$ -- 78
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 166
+empty$ -- 322
+format.name$ -- 70
+if$ -- 871
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 58
+num.names$ -- 35
+pop$ -- 58
+preamble$ -- 1
+purify$ -- 78
+quote$ -- 0
+skip$ -- 128
+stack$ -- 0
+substring$ -- 350
+swap$ -- 22
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 0
+while$ -- 41
+width$ -- 0
+write$ -- 145
