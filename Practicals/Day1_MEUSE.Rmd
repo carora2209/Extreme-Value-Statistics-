@@ -16,11 +16,11 @@ library(ismev)
 
 ```{r}
 # import meuse data
-source("meuse.data.R")
+source("Day1_meuse.data.R")
 attach(meuse)
 require(lattice)
 names(meuse)
-xyplot(Discharge~Year,pch=19)
+xyplot(Discharge~Year,pch=5)
 ```
 
 Meuse annual maximal discharge
@@ -38,6 +38,7 @@ Normal and exponential QQ plots
 
 ```{r}
 qqmath(Discharge,xlab="Normal quantiles")
+#abline(a = 1, b = 0)
 # QQplot for Extreme Value Analysis
 qqmath(Discharge,distribution = qexp,xlab="Exponential quantiles")
 
@@ -68,8 +69,8 @@ gev.diag(meuse.GEV)
 gum.diag(meuse.GUM)
 ```
 ```{r}
-gev.profxi(meuse.GEV)   #-.3,.3
-gev.prof(meuse.GEV,100) # 2500,4500
+gev.profxi(meuse.GEV,-.3,.3)
+gev.prof(meuse.GEV,100, 2500,4500)
 ```
 CONCLUSION
 =
@@ -97,20 +98,21 @@ plot(meuse)
 ###  For interactivity execute the commands of chunk in the CONSOLE
 # CLICK on point in Plot window [ESC  to end]
 identify(meuse)
+which.max(meuse$Discharge)
 ```
 
 Outliers
 ==
 
 ```{r}
-Year[15]; Year[85]
+Year[15]; Year[83]
 
 ```
 Remove outliers
 ==
 
 ```{r}
-mm2 = data.frame(cbind(Year[c(-15,-85)],Discharge[c(-15,-85)]))
+mm2 = data.frame(cbind(Year[c(-15,-83)],Discharge[c(-15,-83)]))
 colnames(mm2) = c("Year","Discharge")
 ```
 

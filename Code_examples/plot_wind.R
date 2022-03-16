@@ -1,6 +1,8 @@
-load("team_number.RData")
+load("Datasets/1_Wind.RData")
+library(ggmap)
 
 bbox <- c(-21.375,  40.875,  16.875,  61.125)
+
 map <- get_map(location = bbox, source="stamen", maptype = "toner" , color="bw")
 
 dataToPlot = data.frame(X = coordinates[, 1], Y = coordinates[, 2])
