@@ -1,5 +1,9 @@
 # Practicals Extreme Value Statistics - ATHENS
 
+AT THE BEGINNING OF THE PRACTICAL FOR SPATIAL EXTREMES: got to the `terminal` tab and enter the following command:
+
+`git lfs pull Practicals/*`
+
 ## Introduction
 You will find in this `renkulab` project all practicals and the material necessary for the course's project.
 
@@ -44,7 +48,7 @@ The project is be due on Thursday, March 24th, 2022, at 23:59 CET (UTC+1). To ha
 
 We will dowload the souce code and corresponding rendered htlm/pdf file that will be used to grade the project.
 
-## Dataset attribution adn pairs
+## Dataset attribution and pairs
 
 | Number	|GROUP|	DATA|	Last name|	First name |
 | --- | -------- | -------- |-------- | -------- |
