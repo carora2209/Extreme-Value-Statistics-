@@ -7,6 +7,7 @@ install.packages("extRemes")
 install.packages("fExtremes")
 install.packages("mev")
 install.packages("MCMCpack")
+install.packages("maxLik")
 install.packages("rgl")
 
 
