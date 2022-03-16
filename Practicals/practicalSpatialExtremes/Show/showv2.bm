@@ -1,0 +1,38 @@
+\pdbookmark{sec.0.slide}{sec.0}{2}{Rationale for the \texttt {SpatialExtremes} package}
+\pdbookmark{sec.1}{}{3}{0. About the inner structure of max-stable processes}
+\pdbookmark{sec.1.slide}{sec.1}{4}{Spectral characterization}
+\pdbookmark{sec.1.slide}{sec.1}{5}{Extremal functions}
+\pdbookmark{sec.2}{}{6}{1. Data and descriptive analysis}
+\pdbookmark{sec.2.slide}{sec.2}{7}{Required data}
+\pdbookmark{sec.2.slide}{sec.2}{8}{Additional covariates}
+\pdbookmark{sec.2.slide}{sec.2}{9}{Inspecting data}
+\pdbookmark{sec.2.slide}{sec.2}{10}{Spatial dependence \citep {Cooley2006}}
+\pdbookmark{sec.2.slide}{sec.2}{11}{Spatial dependence (2) \citep {Dombry2017}}
+\pdbookmark{sec.2.slide}{sec.2}{12}{The \texttt {fmadogram} function}
+\pdbookmark{sec.2.slide}{sec.2}{13}{The \texttt {concprob} function}
+\pdbookmark{sec.2.slide}{sec.2}{14}{As an aside (\texttt {AsAnAside.R}) \citep {Dombry2017}}
+\pdbookmark{sec.2.slide}{sec.2}{15}{Spatial trends}
+\pdbookmark{sec.2.slide}{sec.2}{16}{What we have learned so far (apart from using \texttt {SpatialExtremes})}
+\pdbookmark{sec.3}{}{17}{2. Simple max-stable processes}
+\pdbookmark{sec.3.slide}{sec.3}{18}{Max-stable models}
+\pdbookmark{sec.3.slide}{sec.3}{19}{Dependence parameters}
+\pdbookmark{sec.3.slide}{sec.3}{20}{Least squares (\texttt {leastSquares.R}) \citep {Smith1990}}
+\pdbookmark{sec.3.slide}{sec.3}{21}{Pairwise likelihood (\texttt {pairwiseLlik.R}) \citep {Padoan2010}}
+\pdbookmark{sec.3.slide}{sec.3}{22}{Model Selection \citep {Varin2005}}
+\pdbookmark{sec.3.slide}{sec.3}{23}{Simulating simple max-stable processes (\texttt {simulation.R}) \citep {Schlather2002,Dombry2016}}
+\pdbookmark{sec.3.slide}{sec.3}{24}{What we have learned so far (apart from using \texttt {SpatialExtremes})}
+\pdbookmark{sec.4}{}{25}{3. Trends surfaces}
+\pdbookmark{sec.4.slide}{sec.4}{26}{From generalized extreme value margins to unit Fréchet ones}
+\pdbookmark{sec.4.slide}{sec.4}{27}{Omitting the spatial dependence}
+\pdbookmark{sec.4.slide}{sec.4}{28}{Defining trend surfaces}
+\pdbookmark{sec.4.slide}{sec.4}{29}{Fitting the \emph {spatial GEV} model (\texttt {spatialGEV.R}) \citep {Davison2012}}
+\pdbookmark{sec.4.slide}{sec.4}{30}{Get predictions (\texttt {predictionSpatialGEV.R})}
+\pdbookmark{sec.4.slide}{sec.4}{31}{Model selection \#2 (\texttt {modelSelection.R}) \citep {Chandler2007,Kent1982}}
+\pdbookmark{sec.4.slide}{sec.4}{32}{What we have learned so far (apart from using \texttt {SpatialExtremes})}
+\pdbookmark{sec.5}{}{33}{4. General max-stable processes}
+\pdbookmark{sec.5.slide}{sec.5}{34}{Fitting a max-stable process with trend surfaces}
+\pdbookmark{sec.5.slide}{sec.5}{35}{Model checking \citep {Davison2012}}
+\pdbookmark{sec.5.slide}{sec.5}{36}{Predictions (\texttt {simulationFinal.R})}
+\pdbookmark{sec.6}{}{37}{5. Conclusion}
+\pdbookmark{sec.6.slide}{sec.6}{38}{What we haven't seen}
+\pdbookmark{sec.6.slide}{sec.6}{39}{References}

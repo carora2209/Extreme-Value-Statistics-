@@ -1,0 +1,64 @@
+\begin{thebibliography}{}
+
+\bibitem[Chandler and Bate, 2007]{Chandler2007}
+Chandler, R.~E. and Bate, S. (2007).
+\newblock Inference for clustered data using the independence loglikelihood.
+\newblock {\em Biometrika}, 94(1):167--183.
+
+\bibitem[Cooley et~al., 2006]{Cooley2006}
+Cooley, D., Naveau, P., and Poncet, P. (2006).
+\newblock Variograms for spatial max-stable random fields.
+\newblock In Bertail, P., Soulier, P., Doukhan, P., Bickel, P., Diggle, P.,
+  Fienberg, S., Gather, U., Olkin, I., and Zeger, S., editors, {\em Dependence
+  in Probability and Statistics}, volume 187 of {\em Lecture Notes in
+  Statistics}, pages 373--390. Springer New York.
+
+\bibitem[Davison et~al., 2012]{Davison2012}
+Davison, A., Padoan, S., and Ribatet, M. (2012).
+\newblock Statistical modelling of spatial extremes.
+\newblock {\em Statistical Science}, 7(2):161--186.
+
+\bibitem[Dombry et~al., 2016]{Dombry2016}
+Dombry, C., Engelke, S., and Oesting, M. (2016).
+\newblock Exact simulation of max-stable processes.
+\newblock {\em Biometrika}, 103(2):303--317.
+
+\bibitem[Dombry et~al., 2017]{Dombry2017}
+Dombry, C., Ribatet, M., and Stoev, S. (2017).
+\newblock Probabilities of concurrent extremes.
+\newblock {\em To appear in Journal of the American Statistical Association
+  (Theory \& Methods)}.
+
+\bibitem[Kent, 1982]{Kent1982}
+Kent, J.~T. (1982).
+\newblock Robust properties of likelihood ratio tests.
+\newblock {\em Biometrika}, 69:19--27.
+
+\bibitem[Padoan et~al., 2010]{Padoan2010}
+Padoan, S., Ribatet, M., and Sisson, S. (2010).
+\newblock Likelihood-based inference for max-stable processes.
+\newblock {\em Journal of the American Statistical Association (Theory \&
+  Methods)}, 105(489):263--277.
+
+\bibitem[Ribatet, 2013]{Ribatet2013b}
+Ribatet, M. (2013).
+\newblock Spatial extremes: {M}ax-stable processes at work.
+\newblock {\em Journal de la Soci{\'e}t{\'e} Fran{\c c}aise de Statistique},
+  154(2):156--177.
+
+\bibitem[Schlather, 2002]{Schlather2002}
+Schlather, M. (2002).
+\newblock Models for stationary max-stable random fields.
+\newblock {\em Extremes}, 5(1):33--44.
+
+\bibitem[Smith, 1990]{Smith1990}
+Smith, R.~L. (1990).
+\newblock Max-stable processes and spatial extreme.
+\newblock {\em Unpublished manuscript}.
+
+\bibitem[Varin and Vidoni, 2005]{Varin2005}
+Varin, C. and Vidoni, P. (2005).
+\newblock A note on composite likelihood inference and model selection.
+\newblock {\em Biometrika}, 92(3):519--528.
+
+\end{thebibliography}
