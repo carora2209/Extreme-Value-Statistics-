@@ -9,8 +9,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE, tidy = FALSE, dev = 'png')
 par(mar = c(5, 4, 1, 1) + .1)
-WORK = "~/research/enseignement/ATHENS_Cours-Extremes/code/"
-setwd(WORK)
+#WORK = "~/research/enseignement/ATHENS_Cours-Extremes/code/"
+#setwd(WORK)
 options(warn=-1)
 ```
 
@@ -26,6 +26,8 @@ First, we load the required R packages.
 #library containing the pairwise beta angular measure:
 library(BMAmevt)
 #library for "3D Visualization Using OpenGL":
+options(rgl.useNULL = TRUE)
+options(rgl.printRglwidget = TRUE)
 library(rgl)
 ```
 
