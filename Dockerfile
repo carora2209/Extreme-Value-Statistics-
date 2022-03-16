@@ -20,7 +20,9 @@ RUN apt-get update && \
    libjpeg-dev \
    libgdal-dev \
    proj-bin \
-   freeglut3
+   freeglut3 \
+   freeglut3-dev \
+   libglu1
 USER ${NB_USER}
 
 
