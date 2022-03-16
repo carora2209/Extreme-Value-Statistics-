@@ -23,9 +23,9 @@ More details about the data can be found in the Data section.
 - Perform a full univariate extreme value analysis for the variable and locations you were assigned:
     - Both block-maxima and peaks-over-threshold can be considered.
     - Is there a maximum domain of attraction ? Is the variable heavy-tailed ?
-    - Estimate the EVI, deduce extreme probabilities and extreme quantiles
+    - Estimate the tail index / shape parameter, deduce extreme probabilities and extreme quantiles
 - Try to interpret your results. 
-- Intiatives going beyond the `NO2.Rmd` example, such as multivariate modelling and / or spatial analysis will be expected.
+- Intiatives going beyond the `NO2.Rmd` example, such as multivariate modelling and / or spatial analysis will be expected. Refer to lessons of Day 2, Day 3 and Day 4 to find relevant tools.
 
 If you do not know what to conclude from your results, you can try to see what classical distributions would give: simulate artificial data sets from a GEV/GPD (choose the parameters wisely), and see what the resulting statistics would look like...
 
@@ -45,7 +45,7 @@ You can find the corresponding code to display the location of your measurements
 For a block maxima analysis, you will need to first define, e.g., yearly/monthly maxima, and compute blocks from the original data. 
 
 ## Deadline and grading
-The project is be due on Thursday, March 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report.
+The project is be due on Thursday, March 24th, 2022, at 23:59 CET (UTC+1). To hand-out the project, simply send by email to `hans.wackernagel[at]mines-paristech.fr` the link of the renkulab project containing your report. Only one report per team is necessary.
 
 We will dowload the souce code and corresponding rendered htlm/pdf file that will be used to grade the project.
 
