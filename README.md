@@ -80,4 +80,6 @@ We will dowload the souce code and corresponding rendered htlm/pdf file that wil
 |15	|R|	Rainfall |	JANCICKA |	Lukas |
 |16|	S |	Temperature |	CLAVE |	Gabriel |
 |16	|S |	Temperature |	CARDI |	Etienne |
+|17 |	T |	Wind |	VALADE |	Nicolas |
+|17 |	T |	Wind |	ABESSOUGUIEBAYIHA |	Jean-Sébastien |
 

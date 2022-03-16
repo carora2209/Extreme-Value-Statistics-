@@ -7,6 +7,8 @@ install.packages("extRemes")
 install.packages("fExtremes")
 install.packages("mev")
 install.packages("MCMCpack")
+install.packages("rgl")
+
 
 # Update markdown pacakge
 install.packages("markdown")
