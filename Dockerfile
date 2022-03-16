@@ -22,7 +22,8 @@ RUN apt-get update && \
    proj-bin \
    freeglut3 \
    freeglut3-dev \
-   libglu1
+   libglu1 \
+   x11-apps
 USER ${NB_USER}
 
 
