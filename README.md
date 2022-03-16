@@ -1,8 +1,9 @@
 # Practicals Extreme Value Statistics - ATHENS
 
-AT THE BEGINNING OF THE PRACTICAL FOR SPATIAL EXTREMES: got to the `terminal` tab and enter the following command:
+AT THE BEGINNING OF THE PRACTICAL FOR SPATIAL EXTREMES:
 
-`git lfs pull Practicals/*`
+- go to the `terminal` tab,
+- enter the following command `git lfs pull Practicals/*`
 
 ## Introduction
 You will find in this `renkulab` project all practicals and the material necessary for the course's project.
