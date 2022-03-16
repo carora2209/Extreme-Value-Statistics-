@@ -26,8 +26,6 @@ First, we load the required R packages.
 #library containing the pairwise beta angular measure:
 library(BMAmevt)
 #library for "3D Visualization Using OpenGL":
-options(rgl.useNULL = TRUE)
-options(rgl.printRglwidget = TRUE)
 library(rgl)
 ```
 
@@ -36,6 +34,7 @@ n=200
 pars=c(0.5,0.2,0.2,6)
 w=rpairbeta(n,dimData=3,par=pars)
 plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
+rglwidget()
 
 pars=c(.1,10,10,10)
 w=rpairbeta(n,dimData=3,par=pars)
@@ -44,6 +43,7 @@ segments3d(c(1,0),c(0,1),c(0,0),col="blue")
 segments3d(c(1,0),c(0,0),c(0,1),col="blue")
 segments3d(c(0,0),c(0,1),c(1,0),col="blue")
 points3d(0,0,0,col="blue",size=10)
+rglwidget()
 
 pars=c(25,10,10,10)
 w=rpairbeta(n,dimData=3,par=pars)
@@ -52,6 +52,7 @@ segments3d(c(1,0),c(0,1),c(0,0),col="blue")
 segments3d(c(1,0),c(0,0),c(0,1),col="blue")
 segments3d(c(0,0),c(0,1),c(1,0),col="blue")
 points3d(0,0,0,col="blue",size=10)
+rglwidget()
 
 pars=c(.1,.1,.1,.1)
 w=rpairbeta(n,dimData=3,par=pars)
@@ -60,6 +61,7 @@ segments3d(c(1,0),c(0,1),c(0,0),col="blue")
 segments3d(c(1,0),c(0,0),c(0,1),col="blue")
 segments3d(c(0,0),c(0,1),c(1,0),col="blue")
 points3d(0,0,0,col="blue",size=10)
+rglwidget()
 
 pars=c(25,.1,.1,.1)
 w=rpairbeta(n,dimData=3,par=pars)
@@ -68,6 +70,7 @@ segments3d(c(1,0),c(0,1),c(0,0),col="blue")
 segments3d(c(1,0),c(0,0),c(0,1),col="blue")
 segments3d(c(0,0),c(0,1),c(1,0),col="blue")
 points3d(0,0,0,col="blue",size=10)
+rglwidget()
 ```
 
 
