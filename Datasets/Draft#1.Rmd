@@ -1,0 +1,53 @@
+---
+title: "Extreme Value Statistics Draft 1"
+Dataset: Wind 
+Group: 1
+Name: Chaitanya Arora, Diandra Gramma 
+output: html_document
+---
+
+## Introduction ##
+
+Before deep diving into the analysis and coding portion,we should analyse the type of data that we have and what does it mean. 
+
+The wind datasets is contains 2 files:
+
+1. "coordinates": This file contains the coordinates of the 5 places in western Europe which we will analyse during the process of the project
+
+2. "dataset": this is a large matrix containing maximum speed in the duration of 3 hours which lasted for more than 3sec. 
+The data is from 10th January 1979 - 4th Jan 2014 (35 years)
+
+
+## Step 1: Basic Analysis of the data ##
+
+1.1 The graphical representation of the 5 places that we are dealing with
+
+```{r}
+
+load("Datasets/1_Wind.RData")
+library(ggmap)
+
+bbox <- c(-21.375,  40.875,  16.875,  61.125)
+
+map <- get_map(location = bbox, source="stamen", maptype = "toner" , color="bw")
+
+dataToPlot = data.frame(X = coordinates[, 1], Y = coordinates[, 2])
+mapPoints <- ggmap(map) +
+  geom_point(
+    data = dataToPlot,
+    aes(x = X, y = Y),
+    color = "red",
+    alpha = 1,
+    size = 3,
+    shape = 16,
+  ) +
+  labs(title = "", fill = "") +
+  theme(plot.title = element_text(hjust = 0.5)) + theme(legend.position = "none") +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank(), axis.text=element_text(size=14))
+print(mapPoints)
+
+
+```
+
+
+
