@@ -30,7 +30,7 @@ library(rgl)
 ```
 
 ```{r, echo=TRUE}
-n=200
+n=500
 pars=c(0.5,0.2,0.2,6)
 w=rpairbeta(n,dimData=3,par=pars)
 plot3d(w,xlab=expression(w[1]),ylab=expression(w[2]),zlab=expression(w[3]))
@@ -196,7 +196,7 @@ In this case, we see that the estimate is relatively close to the empirically ob
 
 ### 3.3) Estimation of a parametric Dirichlet model for the angular measure
 
-We first define the log-likelihood function, and then use it within the maxLik function to compute the maximum likelihood estimate. 
+We first define the log-likelihood function, and then use it within the maxLink function to compute the maximum likelihood estimate. 
 
 ```{r load packages 3, message=FALSE}
 library(MCMCpack) #for Dirichlet density 

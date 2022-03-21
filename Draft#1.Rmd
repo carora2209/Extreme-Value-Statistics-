@@ -151,8 +151,111 @@ qqmath(dataset[,5],distri=qexp)
 << analysis>>
 
 ```{r}
-n <- gev.fit(dataset[,1])
-m <- gev.diag(n)
-``
+var1 <- gev.fit(dataset[,1])
+# Xi = -0.135 --> Weibull
+m <- gev.diag(var1)
+```
+
+```{r}
+var2 <- gev.fit(dataset[,2])
+# Xi = -0.138 --> Weibull 
+n <- gev.diag(var2)
+
+```
+
+```{r}
+var3 <- gev.fit(dataset[,3])
+# Xi = -0.086 --> Gumbell
+o <- gev.diag(var3)
+
+```
+
+```{r}
+var4 <- gev.fit(dataset[,4])
+# Xi = -0.123 --> Weibull
+p <- gev.diag(var4)
+```
+
+
+```{r}
+var5 <- gev.fit(dataset[,5])
+# Xi = -0.129 --> weibull
+q <- gev.diag(var5)
+```
+
 Doubt: Not able to check the profile liklihood 
 since X value is -0.13 it follows this distrubution
+calculate x n tell distrbution
+
+
+mean excess plot left
+
+```{r}
+mrl.plot(dataset[,1])
+mrl.plot(dataset[,2])
+mrl.plot(dataset[,3])
+mrl.plot(dataset[,4])
+mrl.plot(dataset[,5])
+```
+
+<<<<<<<<<<<<<<<<<< Univariate Analysis >>>>>>>>>>>>>>>>>>
+
+
+ANCOVA Analysis (analysis of covariance)
+
+```{r}
+summary(aov(dataset[,1]~dataset[,2]))
+```
+
+Scatterplot
+
+Line of best fit
+
+Regression Analysis 
+
+whatever else u find relevant
+
+
+<<<<<<<<< Multivariate analysis >>>>>
+
+we start with scatterplot 
+
+```{r}
+mydata=dataset[,-1]
+pairs(mydata)
+```
+
+ Marginal standardization based on the rank transform
+
+```{r}
+n=nrow(mydata)
+myranks=apply(mydata,2,rank)
+data.unif=myranks/(n+1)
+data.stand=1/(1-data.unif)
+```
+
+Estimation of the extremal coefficient
+
+```{r}
+p=0.8+0:19*0.01
+u.star=1/(1-p)
+u.star[1]*mean(apply(data.stand>u.star[1],1,any))
+u.star[20]*mean(apply(data.stand>u.star[20],1,any))
+theta.est=c()
+for(i in 1:length(p)){
+  theta.est[i]=u.star[i]*mean(apply(data.stand>u.star[i],1,any))
+}
+plot(p,theta.est,type="l",lwd=3,xlab="p",ylab=expression(theta[5]))
+# calculate approximate 95% pointwise confidence intervals
+sd_est = sqrt(u.star/n * theta.est *(1-theta.est/u.star))
+lines(p,theta.est + qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
+lines(p,theta.est - qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
+```
+Estimation of the coefficient of tail dependence
+
+```{r}
+library(fExtremes)
+hillPlot(apply(data.stand,1,min), start=0.8*n, plottype="xi") 
+```
+
+
