@@ -258,4 +258,54 @@ library(fExtremes)
 hillPlot(apply(data.stand,1,min), start=0.8*n, plottype="xi") 
 ```
 
+Modeling extremal dependence 
+ 
+We first construct the pseudo-polar coordinates and then extract the angles w corresponding to extreme events. 
 
+
+```{r}
+r.obs=apply(data.stand,1,sum)
+w.obs=data.stand/r.obs
+r_0=quantile(r.obs,0.95)
+w.H=w.obs[r.obs>r_0,]
+```
+ 
+### 3.2) Estimation of joint exceedances above the overall 95% quantile
+
+```{r}
+q95=quantile(mydata,0.95)
+q95
+prob.component=apply(mydata<q95,2,mean)
+u.star=1/(1-prob.component)
+u.star
+ell.min=function(w,u){min(w/u)} #already defined in preceding exercice
+d=5
+n_0=nrow(w.H)
+#estimate the probability of the joint exceedance event:
+d/n_0*sum(apply(w.H,1,ell.min,u=u.star))
+#compare to observed empirical probability:
+mean(apply(t(t(data.stand)/u.star)>1,1,all))
+
+```
+
+Estimation of a parametric Dirichlet model for the angular measure
+
+
+```{r}
+library(MCMCpack) #for Dirichlet density 
+library(maxLik) #for numerical maximisation of the log-likelihood
+```
+
+```{r}
+
+#define the log-likelihood function:
+llfun=function(alpha){
+if(alpha<=0) return(-Inf) #inadmissible parameters
+ sum(log(ddirichlet(w.H,alpha=rep(alpha,d))))
+}
+
+initpar=1 # define the initial value of the parameter
+fit=maxLik(llfun,start=initpar)
+summary(fit)
+
+```
