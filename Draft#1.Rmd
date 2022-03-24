@@ -1,12 +1,12 @@
 ---
-title: "Extreme Value Statistics Draft 1"
+Title: "Extreme Value Statistics Draft 1"
 Dataset: Wind 
 Group: 1
 Name: Chaitanya Arora, Diandra Gramma 
 output: html_document
 ---
 
-## Introduction ##
+################# Introduction ####################
 
 Before deep diving into the analysis and coding portion,we should analyse the type of data that we have and what does it mean. 
 
@@ -20,9 +20,9 @@ The wind dataset is composed of two files:
 The information found above has been collected over a period of 35 years, more specifically from 10th January 1979 to 4th January 2014.
 
 
-## Step 1: Basic Analysis of the data ##
+<<<<<<<<<. Basic Analysis of the data >>>>>>>>>>>>
 
-1.1 The graphical representation of the 5 places we are analysing in this project
+1 The graphical representation of the 5 places we are analysing in this project
 
 ```{r}
 
@@ -53,7 +53,7 @@ print(mapPoints)
 ```
 As it can be seen from the graphic above, the 5 places contained in this project can be found in: Dublin, United Kingdom and lastly, the North Sea. Throughout this report the great saying of Edward Davey "Britain has a lot of wind. It's our wind. We don't have to import it", will be confirmed, as well as a in-depth analysis on how the speed, location and time contribute to it.
 
-1.2 The Basic plots to understand the graph better
+2. The Basic plots to understand the graph better
 
 The first graphic that will be presented is the histogram. This histogram describes a way of identifying how the speeds of the winds with respect to time influence the frequency of such events happening in all 5 locations. 
 
@@ -97,7 +97,7 @@ As a more in-depth view on the data that we are analysing, in case of the histog
 Based on the figures given, one can grasp the fact that most of the wind speed occur when they are between 10 - 20. OF course, some of the locations have the highest frequency on wind speed that are at 22, 25, but all in all they have integrated them in the interval of 10 - 20. However, there is one location that has different values to the other ones, more specifically Location 3, where by the positioning of the location, this one is the only one that is on land (some of them are on land, but they are close to the shore). Thus, it is affirmative to say that position of the location induces a value for the wind as well as the extreme values that comes along, for which in this point, the highest extreme rates are at 5-6.
 
 
-<<<<<<<<<< XY Plot >>>>>>>
+3. <<<<<<<<<< XY Plot >>>>>>>
 
 
 ```{r}
@@ -121,7 +121,7 @@ The graphics are intuitive and they have a lot to offer in terms of the Extreme 
 
 All of the 5 locations have as a maximum limit the wind speed 30 or 35, whereas the real scattering of the extreme value distribution starts. However, two locations’ graphs stand out from all of them: the one for Location 3 and the one for Location 4. Now, as it was mentioned at the histogram’s part, it is fully understandable why Location 3 has the lowest values in windspeed, and why from the windspeed of 27/28, the winds throughout the years are considered to be extreme. Nevertheless, there are a lot to be mentioned about the intensity with which the points are found, such that in most cases, and this is one way that would work as a pattern, is the fact that the windspeed are in most cases somewhat constant (depending on the region of occurrence).
 
-<< Box Plot >>
+4. <<<<< Box Plot >>>>>
 
 
 ```{r}
@@ -153,6 +153,7 @@ In addition to this, by taking a look at the median points in the box plot, at t
 The whiskers are representing the range of our data, thus the whole dataset available is used in this case.
 
 
+5. <<<<<< Dot plots >>>>>>
 
 ```{r}
 dotplot(dataset[,1],pch=1)
@@ -173,8 +174,7 @@ Moreover, as for the Location 4, which, by the graph it resembles, we can confir
 
 
 
-
-<<<<QQ Plot>>>
+6. <<<<<< QQ Plot >>>>>
 
 QQ plots, also known as Quantile- Quantile plots and are usually normal when the line formed by the bullet points is as straight as possible. They analyse and compare two probability distributions whilst plotting the quantiles between each other.  If we would have taken the mean and the standard deviation are on the x axis and the random variable on the y axis, we would have received a straight line at an angle of 45 degrees, made to distinguish better the positioning of the actual plot.
 
@@ -227,7 +227,7 @@ Finally, if an more in-depth process can be done, more so seeing just the quanti
 
 
 
-<<<< GEV Plots >>>
+7. <<<<<< GEV Plots >>>>>>
 
 GEV plots also known as Generalised Extreme Value Distribution is a type of modelling that make use of the maximum likelihood estimation. 
 
@@ -275,7 +275,7 @@ var5 <- gev.fit(dataset[,5])
 q <- gev.diag(var5)
 ```
 
-<<<<<Mean excess plot>>>>
+8. <<<<<<<<Mean excess plot>>>>>>
 
 As with the other plots, the Mean Excess Plot is one that is also used in extreme values statistics, and used to aid the variability of pick when it comes to the threshold of the process. Moreover is a way of collecting information about the adequacy of the GPD model inpractice. 
 
@@ -299,11 +299,14 @@ mrl.plot(dataset[,4])
 mrl.plot(dataset[,5])
 ```
 
-<<<<<<<<<<<<<<<<< bi-variate Analysis >>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< bi-variate Analysis >>>>>>>>>>>>>>>>>>
 
 bi-variarte analysis is used to understand the relation of data's one attrubute to the other attrubute, for this we will try to use the line of best fit model which is used a lot in regression analysis and later scatter plot to understand the bivariate relation ship
 
 This is the line of best fit
+
+9. <<<<<Line of best fit>>>>>
+
 ```{r}
 dates_new=as.Date(dates)
 plot(dataset[,2],dataset[,1])
@@ -313,7 +316,7 @@ abline(lm(dataset[,2]~dataset[,1]))
 Since it does not yield anything fruitful due to a wide range of values throughout the graph, therfore we will avoid doing it for other ones as well.
 
 
-<<<<<<<<< Multivariate analysis >>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Multivariate analysis >>>>>>>>
 
 Before beginning multivariate analysis lets talk about what is multivariate anlaysis what is the approach we will be taking up and why?
 
@@ -341,7 +344,7 @@ In order to do that we encounter various problems like that each point can be ex
 
 Therefore we can use the Copulas to model dependence structure which is unique and determines the dependent structure of X. The marginal choice varies from distribution to distribution 
 
-1. Extremal Independence:
+Extremal Independence:
 
 Extremal independence means that what is the probablity of a value occurring over a certian value. 
  
@@ -358,7 +361,7 @@ Now that we have established a good understanding of the multivariate analysis a
 
 
 
-<<<< Scatter plot diagram :>>>
+10. <<<<<<<<<< Scatter plot diagram :>>>>>>>>>>
 
 ```{r}
 mydata=dataset[,-1]
@@ -373,7 +376,7 @@ There is a positive correaltiion between the two variables
 
 4. This will be relevant for us to to understand that there is some proportional realtionship between the windspeed in different areas. 
 
-<<<<Marginal standardization based on the rank transform>>>
+11. <<<<<<<<<< Marginal standardization based on the rank transform >>>>>>>>
 
 ```{r}
 n=nrow(mydata)
@@ -389,7 +392,7 @@ This can be done using various models depending upon the type of distribution:
 Continuous we use: Fr ́echet marginal distribution 
 or we can also use the standard parto distribution 
 
-<<<<Estimation of the extremal coefficient>>>>>
+12. <<<<<<<<< Estimation of the extremal coefficient >>>>>>>>>>>
 
 ```{r}
 p=0.8+0:19*0.01
@@ -415,7 +418,7 @@ lines(p,theta.est - qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
 4. Judging from the significantly increasing estimates when p increases, the data do not show threshold-stability. We seem to be in the situation of asymptotic independence. 
 
 
-<<<<Estimation of the coefficient of tail dependence>>>>
+13. <<<<<<<<< Estimation of the coefficient of tail dependence >>>>>>
 
 ```{r}
 library(fExtremes)
@@ -430,7 +433,7 @@ As seen from the graph the hillplot graph shoes a negative slope for the in incr
 Which means that at the extreme values the windspeed at different places do not seem to affect the other places. 
 
 
-<<<<<Modeling extremal dependence:>>>>>>>
+14. <<<<< Modeling extremal dependence: >>>>>>>
 
 
 ```{r}
@@ -467,7 +470,7 @@ Looking at the data we can see that empirical estimate we see that the estimate 
 
 
 
-<<<<<<<<Conclusions>>>
+15. <<<<<<<< Conclusions >>>>>>>
 
 Q1. How confidence are scientists when having such a limited amount of knowledge when trying to esteem the effects on the long term?
 
@@ -493,7 +496,6 @@ In our opinion the 4th task is to undertand the patterns in the data and picking
 
 For eg. after doing the plots and understanding what distribution they are following I want to explore the relation or impact of extreme wind speeds in one place and if affects the other or How much are they related together etc. etc. 
 TO answer each of these specific ques one specific ques needs to be done
-
 
 To sum it up most of the process to develop a deep understanding of the data remains same but as we go further the process become specific to the ques you are trying to answer.
 
