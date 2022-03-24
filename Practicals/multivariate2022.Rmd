@@ -150,7 +150,10 @@ Judging from the significantly increasing estimates when p increases, the data d
 
 ### 2.3) Estimation of the coefficient of tail dependence
 
-Next, we plot the estimates of the coefficient of tail dependence, estimated using the Hill estimator applied to the sample of the minimum of the 5 components. This can be done conveniently with the hillPlot function in the fExtremes package, which also provides confidence intervals. 
+Next, we plot the estimates of the coefficient of tail dependence, estimated 
+using the Hill estimator applied to the sample of the minimum of the 5 
+components. This can be done conveniently with the hillPlot function in the 
+fExtremes package, which also provides confidence intervals. 
 
 ```{r load packages 2, message=FALSE}
 library(fExtremes)

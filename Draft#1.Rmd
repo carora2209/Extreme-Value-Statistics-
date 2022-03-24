@@ -28,6 +28,7 @@ The information found above has been collected over a period of 35 years, more s
 
 load("Datasets/1_Wind.RData")
 library(ggmap)
+library(lubridate)
 
 bbox <- c(-21.375,  40.875,  16.875,  61.125)
 
@@ -50,7 +51,7 @@ print(mapPoints)
 
 
 ```
-As it can be seen from the graphic above, the 5 places contained in this project can be found in: Dublin, United Kingdom and lastly, the North See. Throughout this report the great saying of Edward Davey "Britain has a lot of wind. It's our wind. We don't have to import it", will be confirmed, as well as a in-depth analysis on how the speed, location and time contribute to it.
+As it can be seen from the graphic above, the 5 places contained in this project can be found in: Dublin, United Kingdom and lastly, the North Sea. Throughout this report the great saying of Edward Davey "Britain has a lot of wind. It's our wind. We don't have to import it", will be confirmed, as well as a in-depth analysis on how the speed, location and time contribute to it.
 
 1.2 The Basic plots to understand the graph better
 
@@ -77,6 +78,9 @@ hist(data_numeric_v4,breaks=30,main="Frequency of wind speeds in the Area v4",xl
 hist(data_numeric_v4,breaks=30,main="Frequency of wind speeds in the Area v5",xlab = "winds speed in V5")
 
 ```
+Histograms are one of the most used types of plots when trying to plot data, because they are easy to be made. In comparison with the real world and the other methods for plotting that will be presented in this report, histograms are not an efficient way of evaluating the data and objectives. They are used to create an understanding regarding the discrete or even continuous data measured on a scale.
+
+The clear objective of the report is to find the probability of extreme events happening in years time from present times, however, the extreme events are not to be found clearly and independently in histograms. That is why most of the time, these plots are creating an image about the frequency of datasets or even about a historical background on the events happening at a certain time. 
 
 Conclusion:
 
@@ -84,11 +88,16 @@ Despite the fact that the histograms have quite a similar output, they give a ri
 
 It can be seen the fact that the most frequent speeds occur between 10-20 km/h, more specifically at about 13/14 km/h. However the figure for the 3rd location seems to represent the fact that for this area, the speed of the wind is frequent at low levels, which only means the fact that this specific point is located in a region with decreased winds. 
 
-Another interesting point to be taking into consideration is the fact that the last 2 location have the same exact graphic. (???????? Question, where the hell are these loc and which one is which???????)
+Another interesting point to be taking into consideration is the fact that the last 2 location have the same exact graphic.
 
 The second graphic will be the Empirical distribution one. It will focuse, as the one presented above, on how the speeds of the winds with respect to time influence the frequency of extreme event happening in all of the 5 locations given.
 
+As a more in-depth view on the data that we are analysing, in case of the histogram we are measuring the frequency of windspeed in 5 diferent locations (x axis - wind speeds and y axis- frequency).
 
+Based on the figures given, one can grasp the fact that most of the wind speed occur when they are between 10 - 20. OF course, some of the locations have the highest frequency on wind speed that are at 22, 25, but all in all they have integrated them in the interval of 10 - 20. However, there is one location that has different values to the other ones, more specifically Location 3, where by the positioning of the location, this one is the only one that is on land (some of them are on land, but they are close to the shore). Thus, it is affirmative to say that position of the location induces a value for the wind as well as the extreme values that comes along, for which in this point, the highest extreme rates are at 5-6.
+
+
+<<<<<<<<<< XY Plot >>>>>>>
 
 
 ```{r}
@@ -102,13 +111,21 @@ xyplot(dataset[,5]~dates_new,pch=1,ylab=" ")
 ```
 
 
+XY are also among the most used plots, along with the histograms. By the intuitive name they have, they describe the plot configuration in itself, such that a certain data is allocated and presumed to be compared with the data from the datasets. One would mention that these plots are more effectively than histograms, because they do not only show the frequency of events (rare events), but they are also using scattering distribution as a mean access to understanding the data.
 
-<< analysis>>
+Analysis based on the graphs
 
+The data compared is between the 35 years, which were already mentioned, and the intensity of the wind (the wind speed).
+
+The graphics are intuitive and they have a lot to offer in terms of the Extreme values found in certain years. 
+
+All of the 5 locations have as a maximum limit the wind speed 30 or 35, whereas the real scattering of the extreme value distribution starts. However, two locations’ graphs stand out from all of them: the one for Location 3 and the one for Location 4. Now, as it was mentioned at the histogram’s part, it is fully understandable why Location 3 has the lowest values in windspeed, and why from the windspeed of 27/28, the winds throughout the years are considered to be extreme. Nevertheless, there are a lot to be mentioned about the intensity with which the points are found, such that in most cases, and this is one way that would work as a pattern, is the fact that the windspeed are in most cases somewhat constant (depending on the region of occurrence).
+
+<< Box Plot >>
 
 
 ```{r}
-dates_new=as.Date(dates)
+
 yr=factor(year(dates_new),levels=c("1979","1980","1981","1982","1983","1984","1985","1986","1987","1988","1989","1990","1991","1992","1993","1994","1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014"),ordered=TRUE)
 bwplot(yr~dataset[,1])
 bwplot(yr~dataset[,2])
@@ -117,7 +134,24 @@ bwplot(yr~dataset[,4])
 bwplot(yr~dataset[,5])
 
 ```
-<<< analysis >>
+In comparison with the above mentioned plot, the box plot is an easier tool and a type of chart often used when data analysis should be conducted. They are easy to read, as they summarise data from multiple sources and displays the result just in one graph. 
+
+- Displays the data quartiles and the averages.
+- The middle quartile represents the mid-point of the data input, the left-half consists of the values below the middle point and the right-half of the values above the middle point’s value, whilst every “box” is referred to as the inter-quartile range.
+- The whiskers can be lower or upper
+
+Benefits
+
+The box plot is often used, because as in the case of these graphs, one can understand better the statistical impact on a given period of time/ location. In regards to the 1-D dot plots, which can easily be made, the information perceived by the user is of higher influence and on a larger scale of detail, which in most cases counts the most. 
+
+Analysis based on graphs
+
+To confirm what is written above, in all of the 5 graphs done over the 35 years of analysis, the middle point of the even sized box plots seems to be fluctuating, but not dramatically, meaning that if there would have been taken an average over all the years, this average would not be far from each of the points in all of the years. Nonetheless, the box itself depicts which years have been found to have been more drastic on the locations, finally giving a sense of the impact and whether or not the impact was in multiple years, how many years and if it was of high risk or not. 
+
+In addition to this, by taking a look at the median points in the box plot, at times there is a discrepancy between a median point from a current year and one from a previous year. These points are so called “critical points”, containing a high dataset of values and a low dataset of values. Moreover, there can also be depicted at times an almost S-shaped line formed by the middle points of the box plots. 
+
+The whiskers are representing the range of our data, thus the whole dataset available is used in this case.
+
 
 
 ```{r}
@@ -129,7 +163,26 @@ dotplot(dataset[,5],pch=1)
 
 
 ```
-<<< analysis>>
+The dot plot is usually a type of statistical chart consisting of data contained in the dataset, that is plotted on a single scale. It is represented by two axis, the horizontal axis with, the corresponding values and the vertical one that displays the index. Thus, in our case the dot plot is a configuration of our wind speed in regards to the time in which it happened, based on all 5 locations.
+
+Analysis based on the graphs
+
+Based on the plots created, one can observe the fact that the general occurrences are between the level of 0 and maximum 30. What is here to be considered extremes are the occurrences found after the wind speed of 30. 
+
+Moreover, as for the Location 4, which, by the graph it resembles, we can confirm the fact that due to the positioning of this point in Ireland, the winds are to be more powerful. The point is right next the the bay leading to North Atlantic Ocean, a part of the Atlantic that is said to be counting high powerful winds. However, when taking this point in comparison to Location 1, which is in the North Sea, it can be depicted the fact that occurrences of strong extreme winds are not as often. In the fourth location there is a high intercalation of quantiles, whereas for the location in the North Sea, the extreme values are found to be well defined at a point in time.
+
+
+
+
+<<<<QQ Plot>>>
+
+QQ plots, also known as Quantile- Quantile plots and are usually normal when the line formed by the bullet points is as straight as possible. They analyse and compare two probability distributions whilst plotting the quantiles between each other.  If we would have taken the mean and the standard deviation are on the x axis and the random variable on the y axis, we would have received a straight line at an angle of 45 degrees, made to distinguish better the positioning of the actual plot.
+
+QQ plots are used for differentiating ways of plotting and types of distributions, providing at the same time knowledge about locations, scales and type of result the plot provides. In addition to this it can provide comparison between datasets, comparison of the distributions, can provide an easily to interpret results and lastly allowing the data to be fit into a distribution. 
+
+For the QQ plots a lot of data is necessary, if not the plot won’t lead to a precise result, giving an inconclusive or answer, analyse and type of distribution.
+
+
 
 ```{r}
 qqmath(dataset[,1])
@@ -138,7 +191,19 @@ qqmath(dataset[,3])
 qqmath(dataset[,4])
 qqmath(dataset[,5])
 ```
-<< analysis>>
+
+Because the code was written as for a normally distributed QQ plot, one can observe its normality just by looking at the graphics. In comparison with the results’ plots done prior, making a QQ normal distribution plot and by interpreting it, one one find in the plot the point that gives a quantile or a precise median. One factor needed to be taken into consideration, for example when wanting to  calculate the medians or the quantiles, is always finding the correlation coefficient between paired of sample quantiles. The end result, however, would only assume a relative position of the ones mentioned above. To generate this, a simple quantiles could be used.
+
+In addition to this, after taking a deeper look on all of the 5 locations’ plots, it can very well be stated that the second location, having the ends of the plot (the scattering ones), can be concluded to be the closes to the Normal distribution. However, what is interesting in regards to these plots is the fact that the histogram is of high relation to the way they look:
+
+- If the histogram is a perfectly made parabola, than the normal distribution of the QQ plots on the same data should follow the straight line;
+- If the histogram is also a parabola, but is too peaked in the middle (big discrepancies between the maximum values and the lowest values), the QQ plot will have short distance in common with the straight line and the rest of the first and last quarters would be too below/ too above;
+- If the histogram is skewed to the left, then the normal distribution would also be skewed to the left;
+- If the histogram is skewed to the right, then the normal distribution would also be skewed to the right;
+
+Thus, taking a look back at the histograms done at the first point, it can be confirmed that the normal distribution plots in the ones that have been analysed in this project, that they are asymmetrically to the right, which only means that it is negatively skewed.
+
+
 
 
 ```{r}
@@ -148,9 +213,38 @@ qqmath(dataset[,3],distri=qexp)
 qqmath(dataset[,4],distri=qexp)
 qqmath(dataset[,5],distri=qexp)
 ```
-<< analysis>>
+The QQ plots with an exponential distribution are the continuous and independent systems occurring at a more rare constant rate. The shape of one is found to be similar with a skewed normal distribution.Because the QQ exponential plot is part of the QQ “family”, for which the theory was presented above, the analysis of the graphics will follow.
+
+One factor needed to be taken into consideration, for example when wanting to calculate the medians or the quantiles, is always finding the correlation coefficient between paired of sample quantiles. The end result, however, would only assume a relative position of the ones mentioned above. To generate this, a simple quantiles could be used.
+
+The process, as in the other cases, was realized based on data we have available, the windspeed, years and finally the location. The graphs seem to be similar from one to another in a curved shape. However, the most important factor is the scattering dots and how they occur. Based on this factor, Location 3 is the one that is the most linear dependent out of the rest, following the imaginary (or not) straight line that has the origin in 0. The rest of the locations seem to be independent, rare and extreme events.
+
+Despite this, in exponential distribution, one finds the graph closest to the straight line the best fit, whereas in our case, as already mentioned is not the case. This is due to the parameter lambda, p, t and x, where lambda must always have a positive value, p that find values between 0 and 1, x is also always positive and the threshold t is higher than x.
+
+In the case analysed, there is a discrepancy in all locations between the values: for windspeed (0-20) and for the exponential quantiles (0-2 in some cases and 0-4 in other cases), leading to the almost wrongful graphics conducted, after running the code. 
+
+Finally, if an more in-depth process can be done, more so seeing just the quantiles for the exponential of the tail, then, as for the last case, the Location 3 is considered to be the best fit, whereas Location 5 is the least suitable for this type of plots, however non of the graphics are linearly related.
+
+
+
+<<<< GEV Plots >>>
+
+GEV plots also known as Generalised Extreme Value Distribution is a type of modelling that make use of the maximum likelihood estimation. 
+
+For simulating the block maximum data, The GEV can be characterised valuably as the constraining dispersion of square maxima (or minima). That's , in case you create an expansive number of free arbitrary values from a single likelihood dispersion, and take their greatest esteem, the dissemination of that most extreme is roughly a GEV. The unique conveyance decides the shape parameter, k, of the coming about GEV dissemination. Conveyances whose tails drop off as a polynomial, such as Student's t, lead to a positive shape parameter. Dispersions whose tails diminish exponentially, such as the typical, compare to a zero shape parameter. Conveyances with limited tails, such as the beta, compare to a negative shape parameter.
+
+Two of the graphs shown in the plots have already been analysed and commented on prior, thus the GEV plot analysis will focus on the other two left: the Probability Plot and the Return Level Plot. 
+
+The first one mentioned, as the name imposes “probability”, resembles the process of assessing your data from the present datasets with different distributions, acknowledging whether or not it resembles one (an example for this would be the normal distribution). It is formed by two axis, more specifically x which is the order statistic median for the given distribution and on the y axis, the ordered response values. Moreover, the plot should follow a distribution of points that are following a straight line.
+
+Regarding the statement provided above and taking into consideration the graphics made for al 5 locations, one can suggest that the most accurate graphics between all of them is both the first location and the fourth one. 
+
+Talking about return level plots, there is to be noticed a fine simplicity of interpretation and a good operation when the graphic is also validate (this is usually due to the tail compression of the distribution when in extrapolation).
+
+An analysis done on the threshold of the graphic can be found in the following way: if the threshold is too low, the asimptotic model is invalid, if the threshold is too high, then there is variance is too large due to some of the data points.
 
 ```{r}
+library(ismev)
 var1 <- gev.fit(dataset[,1])
 # Xi = -0.135 --> Weibull
 m <- gev.diag(var1)
@@ -175,20 +269,27 @@ var4 <- gev.fit(dataset[,4])
 # Xi = -0.123 --> Weibull
 p <- gev.diag(var4)
 ```
-
-
 ```{r}
 var5 <- gev.fit(dataset[,5])
 # Xi = -0.129 --> weibull
 q <- gev.diag(var5)
 ```
 
-Doubt: Not able to check the profile liklihood 
-since X value is -0.13 it follows this distrubution
-calculate x n tell distrbution
+<<<<<Mean excess plot>>>>
 
+As with the other plots, the Mean Excess Plot is one that is also used in extreme values statistics, and used to aid the variability of pick when it comes to the threshold of the process. Moreover is a way of collecting information about the adequacy of the GPD model inpractice. 
 
-mean excess plot left
+But what is the GPD model? It is a type of distribution that has a very similar work domain as the one of central limit theorem. It focuses on the maximum values of a random variable, which is independent and identically distributed. As in for our case with the Mean Excess plot, the GPD model focuses the most on the right tail part of the the distribution, thus only the positive extreme values.
+
+The Mean Excess plot is also a tool to be compared with other techniques, such as the Hill estimator, the Pickands estimator and the QQ plot. 
+
+Analysis based on the graph
+
+In other words, the way it works is by conditioning a random variable X on the event X>t, where the mean-excess function, also known as mean residual life in survival analysis is e(t)=E[X-t | X>t], where X is a random variable. This analysis focuses on the ratio between the mean excess function and the windspeed data from the datasets. Moreover, the plots were done for all of the 5 locations.
+
+By just looking at the graphic, one can state the fact that the type of plot is underlined by a thin tailed behaviour, because it is a plot from the top left continuing to the right bottom of the graphic (downwards slope). In addition to this, it can also be mentioned the fact that the graphics are constant leaning towards an exponential distribution. 
+
+Regarding the right tail behaviour of the plots, one can assume that if the tail tends to a straight line with positive, negative or zero slopes, then the analysis is in the domain of attraction a Fréchet, Gumbel or Weibull distributions. And such is in this case, a Generalised Pareto with random variables α = 2 and β = 2.
 
 ```{r}
 mrl.plot(dataset[,1])
@@ -198,34 +299,81 @@ mrl.plot(dataset[,4])
 mrl.plot(dataset[,5])
 ```
 
-<<<<<<<<<<<<<<<<<< Univariate Analysis >>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<< bi-variate Analysis >>>>>>>>>>>>>>>>>>
 
+bi-variarte analysis is used to understand the relation of data's one attrubute to the other attrubute, for this we will try to use the line of best fit model which is used a lot in regression analysis and later scatter plot to understand the bivariate relation ship
 
-ANCOVA Analysis (analysis of covariance)
-
+This is the line of best fit
 ```{r}
-summary(aov(dataset[,1]~dataset[,2]))
+dates_new=as.Date(dates)
+plot(dataset[,2],dataset[,1])
+abline(lm(dataset[,2]~dataset[,1]))
+
 ```
-
-Scatterplot
-
-Line of best fit
-
-Regression Analysis 
-
-whatever else u find relevant
+Since it does not yield anything fruitful due to a wide range of values throughout the graph, therfore we will avoid doing it for other ones as well.
 
 
-<<<<<<<<< Multivariate analysis >>>>>
+<<<<<<<<< Multivariate analysis >>>>>>>>
 
-we start with scatterplot 
+Before beginning multivariate analysis lets talk about what is multivariate anlaysis what is the approach we will be taking up and why?
+
+A multivariate distribution is when we have multiple iid (independent identical distrubution) vectors. One point to note is that there is no natural ”ordering” or unique definition of extremes in a multivariate setting.
+
+Xi = (Xi,1,...,Xi,D) ∈ R^d.
+
+Extremes in terms of Multivariate distribution is given in different forms by barnett is 
+1. Component wise maxima 
+2. Convex hull
+3. Structure variable 
+
+The third one is used very often in different fields namely portfolio risk management or calculating wind speed etc. 
+
+In multivariate analysis of extreme value using structural approach we calculate the joint distribution F which is given by
+
+Pr(X ∈ A) = Integral(dF(x))
+
+for some set A ⊂ RD .
+
+The problem is the fact that we have little or no data to predict if there will be an event which will occcur a certain value 
+Therefore we use asymptotically motivated models to extrapolate into the multivariate tail.
+
+In order to do that we encounter various problems like that each point can be extraploted in many directions and Multiple models are available with different hypothesis.
+
+Therefore we can use the Copulas to model dependence structure which is unique and determines the dependent structure of X. The marginal choice varies from distribution to distribution 
+
+1. Extremal Independence:
+
+Extremal independence means that what is the probablity of a value occurring over a certian value. 
+ 
+pairwise extermal independence is calculated with (Xi) coefficient r(Y1,Y2)
+
+# Pr{Y1 >u|Y2 >u}= uPr{Y1 >u,Y2 >u}/uPr{Y2 > u}
+
+The value of Xi is used to calculate asymptotic external dependence 
+If the Y1 and Y2 are independent then it is 0
+
+Asymptotic independence is calculated with the use of η (ita)
+
+Now that we have established a good understanding of the multivariate analysis and the different approaches used:
+
+
+
+<<<< Scatter plot diagram :>>>
 
 ```{r}
 mydata=dataset[,-1]
 pairs(mydata)
 ```
+1.Scatter plot is a graph in which the values of two variables are plotted along two axes, the pattern of the resulting points revealing any correlation present.
 
- Marginal standardization based on the rank transform
+2.We are using this plot just to understand the basic correlation between the wind speed in different areas to see if there is a relation between them (Does the wind speed in one place affect the other)
+
+3.Looking at the graph below we observe: Since each and every graph shows a positive correaation that signifies that 
+There is a positive correaltiion between the two variables
+
+4. This will be relevant for us to to understand that there is some proportional realtionship between the windspeed in different areas. 
+
+<<<<Marginal standardization based on the rank transform>>>
 
 ```{r}
 n=nrow(mydata)
@@ -234,7 +382,14 @@ data.unif=myranks/(n+1)
 data.stand=1/(1-data.unif)
 ```
 
-Estimation of the extremal coefficient
+The second graph in the multivariate analysis is Marginal Standardization Distribution.
+Marginal Standardization graph is in which the values of two variables are plotted along two axes, the pattern of the resulting points revealing any correlation present.
+
+This can be done using various models depending upon the type of distribution:
+Continuous we use: Fr ́echet marginal distribution 
+or we can also use the standard parto distribution 
+
+<<<<Estimation of the extremal coefficient>>>>>
 
 ```{r}
 p=0.8+0:19*0.01
@@ -251,16 +406,31 @@ sd_est = sqrt(u.star/n * theta.est *(1-theta.est/u.star))
 lines(p,theta.est + qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
 lines(p,theta.est - qnorm(.975)*sd_est, col = "blue", lwd = 3, lty = 2)
 ```
-Estimation of the coefficient of tail dependence
+1. Extermal coefficeint is a natural way to measure dependence among spatial maxima stems from considering the distribution of the largest value.
+
+2. We would be using this graph to get the probability of events which are happening above a certain extent i.e. the probability of an extreme event occurring which will be above a threshold
+
+3. This graph is intetprated as theta belongs to [1,d] is the avg number of independent clusters among the components 1 to d where an extreme event occurs 
+
+4. Judging from the significantly increasing estimates when p increases, the data do not show threshold-stability. We seem to be in the situation of asymptotic independence. 
+
+
+<<<<Estimation of the coefficient of tail dependence>>>>
 
 ```{r}
 library(fExtremes)
 hillPlot(apply(data.stand,1,min), start=0.8*n, plottype="xi") 
 ```
+The concept of tail dependence describes the amount of dependence in the lower- left-quadrant tail or upper-right-quadrant tail of a multivariate distribution. A common measure of tail dependence is given by the so-called tail-dependence coefficient.
 
-Modeling extremal dependence 
- 
-We first construct the pseudo-polar coordinates and then extract the angles w corresponding to extreme events. 
+This is estimated using the Hill estimator applied to the sample of the minimum of the 5 components which is the five locations in this case. This can be done conveniently with the hillPlot function in the fExtremes package, which also provides confidence intervals. 
+
+As seen from the graph the hillplot graph shoes a negative slope for the in increasing values, and the value of ita is less than one and is constantly decreasing which indicates a strong asympototic independence between the 5 vairables together.
+
+Which means that at the extreme values the windspeed at different places do not seem to affect the other places. 
+
+
+<<<<<Modeling extremal dependence:>>>>>>>
 
 
 ```{r}
@@ -269,8 +439,6 @@ w.obs=data.stand/r.obs
 r_0=quantile(r.obs,0.95)
 w.H=w.obs[r.obs>r_0,]
 ```
- 
-### 3.2) Estimation of joint exceedances above the overall 95% quantile
 
 ```{r}
 q95=quantile(mydata,0.95)
@@ -288,24 +456,47 @@ mean(apply(t(t(data.stand)/u.star)>1,1,all))
 
 ```
 
-Estimation of a parametric Dirichlet model for the angular measure
+
+Moving on right now even though we are referring to the extreme events and analyzing them with respect to the other elements, but majorly we are referring to the fact if there is a connection between them to make preditions and calculated risks according to the data
+
+But now we can use these asymptomatic dependent models to provide and idea for conservative estimates for the joint risks for this we make use of Modeling extremal dependence 
+
+To accomplish this we construct the pseudo-polar coordinates and then extract the angles w corresponding to extreme events, after which we filter that data to the extreme values by taking joint exceedances above the overall 95% quantile
+
+Looking at the data we can see that empirical estimate we see that the estimate is relatively close to the empirically observed value.
 
 
-```{r}
-library(MCMCpack) #for Dirichlet density 
-library(maxLik) #for numerical maximisation of the log-likelihood
-```
 
-```{r}
+<<<<<<<<Conclusions>>>
 
-#define the log-likelihood function:
-llfun=function(alpha){
-if(alpha<=0) return(-Inf) #inadmissible parameters
- sum(log(ddirichlet(w.H,alpha=rep(alpha,d))))
-}
+Q1. How confidence are scientists when having such a limited amount of knowledge when trying to esteem the effects on the long term?
 
-initpar=1 # define the initial value of the parameter
-fit=maxLik(llfun,start=initpar)
-summary(fit)
+In these cases, the data that we are using are based on extrapolation. The data is meant to be working efficiently in providing an answer for the future, as in all of the Extreme Values Statistics. The objective is highly defined as providing a probability statement on the events that are to be/ or not to be happening in the next far future. However, In most cases, the data that we detain, regardless of the fact that is providing numerous elements of information or not, could not include probability affirmations for the future. Everything, in the end is just an ambigue estimation.
 
-```
+Thus, the scientist do not have something concrete to assume in the future, they are basing themselves on extrapolating concrete data from the past and present with which therefore are constructing the base for the future. By extrapolating the data that they had, in the past, they assumed moments in which the aftermath was assumed to be corect.
+
+Finally, even though the “uncertainty” is present, the best fit for this objective is comparing models, divide the distribution in quantile, examine at a larger scale and at a more in-depth scale and compare the quantiles between the models. This is a way of finding the best fit for models, whether they are relating to finance (stock market, inflation …) or natural phenomena (wind, rain, heat waves …).
+
+
+Q2. Would changing the data, when evaluating methods, would impact the process itself? Would it still perform well?
+
+To some extent yes, As we know that when we get data there are always some boiler plate stuff that we should conduct which will help us in understanding the data more concretely, for example when we had the wind data we:
+
+Firstly looked over the data and tried to understand what kind of attributes each file has and what does it mean.
+
+Secondly we took the data and we should have cleaned it as the raw data that we get is not clean is not a structured form: this process is called data cleaning. 
+Ps. we skipped this step as we got it normally from the professor and was not exactly raw data
+
+Third task is to deepen the understanding of the data, here is where we make use of basic plots to go deeper, we did this by making use of histograms,xy plots, dot plots etc. They helped us in understanding where does gnerally data lie and more importantly what does it mean 
+
+In our opinion the 4th task is to undertand the patterns in the data and picking up a topic or a idea which we want to know about, this can be formed before you start the project or while doing as well as per the interest. then the analysis starts getting a little specific depending upon the ques we are trying to answer.
+
+For eg. after doing the plots and understanding what distribution they are following I want to explore the relation or impact of extreme wind speeds in one place and if affects the other or How much are they related together etc. etc. 
+TO answer each of these specific ques one specific ques needs to be done
+
+
+To sum it up most of the process to develop a deep understanding of the data remains same but as we go further the process become specific to the ques you are trying to answer.
+
+
+
+
