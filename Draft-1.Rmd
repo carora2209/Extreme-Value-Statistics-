@@ -1,9 +1,11 @@
 ---
-Title: "Extreme Value Statistics Draft 1"
-Dataset: Wind 
+Title: Extreme Value Statistics Draft 1
+Dataset: Wind
 Group: 1
-Name: Chaitanya Arora, Diandra Gramma 
-output: html_document
+Name: Chaitanya Arora, Diandra Gramma
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ################# Introduction ####################
